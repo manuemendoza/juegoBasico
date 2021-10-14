@@ -1,0 +1,197 @@
+:root {
+    --colorApagado: red;
+    --colorEncendido: greenyellow;
+    --colorOpuestoFondo: #EF7F1A;
+    --negroTransparente: rgba(0, 0, 0, 0.842);
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+* ::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+}
+
+
+/*Globales*/
+
+.no-m {
+    margin: 0;
+}
+
+.grid__selecPj {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 2rem; */
+    gap: 2rem;
+    margin: 8rem 2rem 2rem 2rem;
+}
+
+
+/*Escenarios*/
+
+.fondo {
+    background-image: url(../img/eleccionPersonaje.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.transparencia {
+    background-color: var(--negroTransparente);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.escenario {
+    background-image: url(../img/6TEKENJ.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+/*pagina comienzo*/
+
+.boton__inicio--contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 48rem;
+}
+
+.boton__boton {
+    background-color: var(--colorApagado);
+    border: none;
+    border-radius: 50%;
+    margin-top: auto;
+    cursor: pointer;
+    margin-top: 10rem;
+}
+
+.boton--imagen {
+    margin-top: .5rem;
+    width: 20rem;
+}
+
+.letras__inicio,
+.letras__inicio--estilo,
+.inicio--estilo--numeros {
+    font-weight: bold;
+    align-content: center;
+    color: var(--colorOpuestoFondo);
+}
+
+.letras__inicio {
+    font-size: 5rem;
+}
+
+.letras__inicio--estilo {
+    font-size: 9rem;
+}
+
+.inicio--estilo--numeros {
+    font-size: 50rem;
+}
+
+
+/*pagina eleccion personaje*/
+
+.eleccion__personaje {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.eleccion__personaje--titulo {
+    font-size: 15rem;
+}
+
+.personaje--titulo {
+    font-size: 8rem;
+}
+
+.eleccion__personaje--titulo,
+.personaje--titulo {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: goldenrod;
+    text-transform: uppercase;
+}
+
+.jp1__img {
+    grid-column: 1 / 3;
+}
+
+.jp2__img {
+    grid-column: 3 /5;
+}
+
+.eleccion__contenedor,
+.eleccion__personaje--titulo {
+    grid-column: 1 / 5;
+}
+
+
+/*Combate*/
+
+.fondo__pelea {
+    background-image: url(../img/escenarioLucha.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+
+/* .eleccion__personaje--titulo,
+.eleccion__contenedor {
+    grid-column: 1 / 5;
+} */
+
+
+/* .boton--p1,
+.boton--p2,
+.boton--p3,
+.boton--p4 {
+    grid-row: 3 / 4;
+}
+
+.boton--p1 {
+    grid-column: 1 / 2;
+}
+
+.boton--p2 {
+    grid-column: 2 / 3;
+}
+
+.boton--p3 {
+    grid-column: 3 / 4;
+}
+
+.boton--p4 {
+    grid-column: 4 / 5;
+} */
+
+.eleccion__personaje--boton {
+    padding: 15rem 6rem;
+}
+
+
+/*
+.eleccion--boton--imagen {
+    width: 5rem;
+}*/
