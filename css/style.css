@@ -27,12 +27,32 @@ body {
     margin: 0;
 }
 
+.no-p {
+    padding: 0;
+}
+
 .grid__selecPj {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* gap: 2rem; */
     gap: 2rem;
     margin: 8rem 2rem 2rem 2rem;
+    column-gap: 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.sp-evenly {
+    justify-content: space-evenly;
+}
+
+.vh-h {
+    height: 97vh;
+}
+
+.vh-w {
+    width: 95vw;
 }
 
 
@@ -114,11 +134,11 @@ body {
 }
 
 .eleccion__personaje--titulo {
-    font-size: 15rem;
+    font-size: 7rem;
 }
 
 .personaje--titulo {
-    font-size: 8rem;
+    font-size: 3rem;
 }
 
 .eleccion__personaje--titulo,
@@ -144,31 +164,24 @@ body {
     grid-column: 1 / 5;
 }
 
+.eleccion__personaje--boton {}
 
-/*Combate*/
+.eleccion__personaje--titulo,
+.eleccion__contenedor {
+    grid-column: 1 / 5;
+}
 
-.fondo__pelea {
-    background-image: url(../img/escenarioLucha.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+.eleccion__personaje--titulo {
+    background-color: transparent;
 }
 
 
-/* .eleccion__personaje--titulo,
-.eleccion__contenedor {
-    grid-column: 1 / 5;
-} */
-
-
-/* .boton--p1,
+/*.boton--p1,
 .boton--p2,
 .boton--p3,
 .boton--p4 {
     grid-row: 3 / 4;
-}
+}*/
 
 .boton--p1 {
     grid-column: 1 / 2;
@@ -184,14 +197,27 @@ body {
 
 .boton--p4 {
     grid-column: 4 / 5;
-} */
+}
 
-.eleccion__personaje--boton {
-    padding: 15rem 6rem;
+.eleccion--boton--imagen {
+    width: 8rem;
+    height: 8rem;
 }
 
 
-/*
-.eleccion--boton--imagen {
-    width: 5rem;
-}*/
+/*Combate*/
+
+.fondo__pelea {
+    /* background-image: url(../img/escenarioLucha.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.estadisticas {}
+
+.pantalla__juego {}
