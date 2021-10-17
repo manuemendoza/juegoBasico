@@ -10,8 +10,8 @@
     <title>Juego</title>
 </head>
 
-<body class="fondo ">
-    <!-- <section class="transparencia">
+<body class="fondo">
+    <section class="transparencia">
         <div class="boton__inicio--contenedor no-m">
             <div class="eliminar">
                 <button id="botonEncendido" class="boton__boton" onclick="encender()">
@@ -20,7 +20,7 @@
             </div>
             <div class="texto__inicio"></div>
         </div>
-    </section> -->
+    </section>
     <section class="eleccion__personaje vh-h">
         <p class="eleccion__personaje--titulo no-m">player select</p>
         <div class="jp1__img">
@@ -30,18 +30,19 @@
         <div class="jp2__img">
             <p class="personaje--titulo no-m">player 2</p>
             <div class="img--jugador--dos"></div>
+            <!-- <p class="nombre__personaje"></p> -->
         </div>
         <div class="eleccion__contenedor grid__selecPj">
-            <button id="personaje__uno" class="eleccion__personaje--boton boton--p1 no-p" onclick="eleccionPersonaje()"><img class="eleccion--boton--imagen" src="img/akumapj.jpg" alt=""></button>
-            <button id="personaje__dos" class="eleccion__personaje--boton boton--p2" onclick="eleccionPersonaje()"><img class="eleccion--boton--imagen" src="img/zangiefpj.jpg" alt=""></button>
-            <button id="personaje__tres" class="eleccion__personaje--boton boton--p3" onclick="eleccionPersonaje()"><img class="eleccion--boton--imagen" src="img/Dhalsimpj.jpeg" alt=""></button>
-            <button id="personaje__cuatro" class="eleccion__personaje--boton boton--p4" onclick="eleccionPersonaje()"><img class="eleccion--boton--imagen" src="img/KenMasterpj.jpg" alt=""></button>
+            <button id="personaje__uno" class="eleccion__personaje--boton boton--p1 no-p" onclick="eleccionPersonaje('akuma')"><img class="eleccion--boton--imagen" src="img/akumapj.jpg" alt=""></button>
+            <button id="personaje__dos" class="eleccion__personaje--boton boton--p2" onclick="eleccionPersonaje('zangief')"><img class="eleccion--boton--imagen" src="img/zangiefpj.jpg" alt=""></button>
+            <button id="personaje__tres" class="eleccion__personaje--boton boton--p3" onclick="eleccionPersonaje('dhalsim')"><img class="eleccion--boton--imagen" src="img/Dhalsimpj.jpeg" alt=""></button>
+            <button id="personaje__cuatro" class="eleccion__personaje--boton boton--p4" onclick="eleccionPersonaje('ken')"><img class="eleccion--boton--imagen" src="img/KenMasterpj.jpg" alt=""></button>
         </div>
     </section>
     <!--pelea-->
-    <!-- <section class="fondo__pelea no-m">
-        estadisticas-->
-    <!--<div class="estadisticas no-m  flex sp-evenly">
+    <section class="fondo__pelea no-m">
+        <!--estadisticas-->
+        <div class="estadisticas no-m  flex sp-evenly">
             <div class="no-m ">
                 <p>vida player 1</p>
             </div>
@@ -51,22 +52,22 @@
             </div>
         </div>
         <!--pantalla de juego-->
-    <!-- <div class="pantalla__juego no-m flex sp-evenly"> -->
-    <!-- <div><img src="img/akumaizq.gif" alt=""></div> -->
-    <!-- <div><img src="img/kendch.gif" alt=""></div> -->
-    <!-- </div> -->
-    <!-- botonees de juego -->
-    <!-- <div class="no-m flex sp-evenly">
-        <div>
-            <button><p>attack pj1</p></button>
-            <button><p>attack pj2</p></button>
+        <div class="pantalla__juego no-m flex sp-evenly">
+            <div class="img--jugador--uno"></div>
+            <div class="img--jugador--dos"></div>
         </div>
-        <div>
-            <button><p>attack pj2</p></button>
-            <button><p>attack pj2</p></button>
+        <!-- botonees de juego -->
+        <div class="no-m flex sp-evenly">
+            <div>
+                <button><p>attack pj1</p></button>
+                <button><p>attack pj2</p></button>
+            </div>
+            <div>
+                <button><p>attack pj2</p></button>
+                <button><p>attack pj2</p></button>
+            </div>
         </div>
-    </div>
-    </section> -->
+    </section>
 
     <script src="js/main.js"></script>
 </body>

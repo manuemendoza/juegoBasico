@@ -71,6 +71,8 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    /* display: none; */
+    /*esto de arriba hay que borrarlo*/
 }
 
 .escenario {
@@ -128,7 +130,8 @@ body {
 /*pagina eleccion personaje*/
 
 .eleccion__personaje {
-    display: grid;
+    display: none;
+    /*pasar a none*/
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
@@ -214,7 +217,8 @@ body {
     background-position: center;
     background-attachment: fixed; */
     height: 100vh;
-    display: grid;
+    display: none;
+    /*grid*/
     grid-template-rows: repeat(3, 1fr);
 }
 

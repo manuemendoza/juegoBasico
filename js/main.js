@@ -1,8 +1,13 @@
 /*Inicio*/
 const transparencia = document.querySelector('.transparencia');
+const pantallaEleccion = document.querySelector('.eleccion__personaje')
+const arenaPelea = document.querySelector('.fondo')
+const campoPelea = document.querySelector('.fondo__pelea')
 const textoInicio = document.querySelector('.texto__inicio');
 const botonboton = document.querySelector('div .eliminar');
 const colorApagado = document.querySelector('.boton__boton');
+const contenedorJugador1 = document.querySelector('.img--jugador--uno');
+const contenedorJugador2 = document.querySelector('.img--jugador--dos');
 
 
 function encender() {
@@ -13,8 +18,13 @@ function encender() {
     setTimeout(function() { textoInicio.innerHTML = `<p class="inicio--estilo--numeros">3</p>` }, 4000)
     setTimeout(function() { textoInicio.innerHTML = `<p class="inicio--estilo--numeros">2</p>` }, 5000)
     setTimeout(function() { textoInicio.innerHTML = `<p class="inicio--estilo--numeros">1</p>` }, 6000)
-    setTimeout(function() { textoInicio.innerHTML = `<p class="inicio--estilo--numeros"></p>` }, 7000)
-    setTimeout(function() { transparencia.style.display = "none" }, 7000)
+    setTimeout(function() {
+            textoInicio.innerHTML = `<p class="inicio--estilo--numeros"></p>`
+            transparencia.style.display = "none"
+            pantallaEleccion.style.display = "grid"
+        }, 7000)
+        //setTimeout(function() { contenedorJugador1.innerHTML = '<img class="" src="img/akumaizq.gif" alt="">' }, 8000)
+        //setTimeout(function() { contenedorJugador2.innerHTML = '<img class="" src="img/akumadch.gif" alt="">' }, 8000)
 }
 
 /*Eleccion de personajes*/
@@ -29,94 +39,155 @@ class personajes {
     }
 }
 class jugador {
-    constructor(personaje) {
-        this.personaje = personaje
+    constructor(personajes) {
+        this.personaje = personajes
     }
 }
-const akuma = new personajes('Akuma', 100, 110, '<img class="imagen-seleccionado" src="img/akumaizq.gif" alt="">', '<img class="imagen-seleccionado" src="img/akumadch.gif" alt="">');
-const zangief = new personajes('Zangief', 150, 70, ('img/zangiefizq.gif'), ('img/zangiefdch.gif'));
-const dhalsimp = new personajes('Dhalsimpj', 90, 100, ('img/Calaberas-izq.gif'), ('img/Calaberas-indistinto.gif'));
-const ken = new personajes('ken', 100, 100, ('img/ken-izq.gif'), ('img/kendch.gif'));
+const akuma = new personajes('Akuma', 100, 110, '<img class="" src="img/akumaizq.gif" alt="">', '<img class="" src="img/akumadch.gif" alt="">');
+const zangief = new personajes('Zangief', 150, 70, '<img class="" src="img/zangiefizq.gif" alt="">', '<img class="" src="img/zangiefdch.gif" alt="">');
+const dhalsim = new personajes('Dhalsim', 90, 100, '<img class="" src="img/calabera-izq.gif" alt="">', '<img class="" src="img/calabera-indistinto.gif" alt="">');
+const ken = new personajes('Ken', 100, 100, '<img class="" src="img/ken-izq.gif" alt="">', '<img class="" src="img/kendch.gif" alt="">');
 
 const jugador1 = new jugador();
 //console.log(jugador1);
 const jugador2 = new jugador();
-
-document.querySelectorAll(".click").forEach(el => {
-    el.addEventListener("click", e => {
-        const id = e.target.getAttribute("id");
-        console.log("Se ha clickeado el id " + id);
-    });
-}); {
-    /* <div id="l73" class="click">Textos </div>
-    <div id="l74" class="click">Textos </div>
-    <div id="l75" class="click">Textos </div>
-    <div id="l76" class="click">Textos </div> */
-}
-//esto de aqui abajo tiene que tener la misma estructura de arriba
-const botonEleccion = document.querySelectorAll('.eleccion__personaje--boton');
-botonEleccion.forEach(boton => {
-    boton.addEventListener('click', eleccionPersonaje)
-})
+//console.log(jugador2);
 
 
-function eleccionPersonaje(evento) {
-    const id = evento.target.getAttribute("id")
-    console.log(id);
-
+function eleccionPersonaje(personaje) {
+    console.log(personaje);
     if (jugador1.personaje == undefined || jugador2.personaje == undefined) {
-        switch (id) {
-            case 'personaje__uno':
+        switch (personaje) {
+            case 'akuma':
                 if (jugador1.personaje == undefined) {
                     jugador1.personaje = akuma;
+                    // alert('Jugador 2 Elije')
                 } else if (jugador2.personaje == undefined && jugador1.personaje !== akuma) {
                     jugador2.personaje = akuma;
-                    starGame(jugador1, jugador2);
+                    pantallaPelea(jugador1, jugador2);
                 }
                 break
-            case 'personaje__dos':
+            case 'zangief':
                 if (jugador1.personaje == undefined) {
                     jugador1.personaje = zangief;
-                    alert("selecciona un segundo jugador");
-                } else if (jugador2.personaje == undefined && jugador1.personaje !== zangief) {
-                    jugador2.personaje = zangief;
-                    starGame(jugador1, jugador2);
+                } else if (jugador2.personaje == undefined && jugador2.personaje !== zangief) {
+                    jugador2.personaje = zangief
                 }
+                pantallaPelea(jugador1, jugador2);
                 break
-            case 'personaje__tres':
+            case 'dhalsim':
                 if (jugador1.personaje == undefined) {
-                    jugador1.personaje = dhalsimp;
-                    alert("selecciona un segundo jugador");
-                } else if (jugador2.personaje == undefined && jugador1.personaje !== dhalsimp) {
-                    jugador2.personaje = dhalsimp;
-                    starGame(jugador1, jugador2);
+                    jugador1.personaje = dhalsim
+                } else if (jugador2.personaje == undefined && jugador2.personaje !== dhalsim) {
+                    jugador2.personaje = dhalsim
                 }
+                pantallaPelea(jugador1, jugador2);
                 break
-            case 'personaje__cuatro':
+            case 'ken':
                 if (jugador1.personaje == undefined) {
                     jugador1.personaje = ken;
-                    alert("selecciona un segundo jugador");
                 } else if (jugador2.personaje == undefined && jugador1.personaje !== ken) {
                     jugador2.personaje = ken;
-                    starGame(jugador1, jugador2);
                 }
+                pantallaPelea(jugador1, jugador2);
+                break
+            default:
                 break
         }
     }
 }
 
-const contenedorJugador1 = document.querySelector(".img--jugador--uno");
-const contenedorJugador2 = document.querySelector(".contenedor-seleccionado-2");
-// let pantallaPrincipalCombate = document.querySelector(".pantalla-principal-combate")
-// let pantallaPrincipalSeleccion = document.querySelector(".pantalla-principal-seleccion")
-
-
-
-const starGame = (primejugador, segundojugador) => {
+function pantallaPelea(primejugador, segundojugador) {
     console.log(primejugador)
     console.log(segundojugador)
-        // pantallaPrincipalSeleccion.style.display = 'none'
-        // pantallaPrincipalCombate.style.display = 'flex';
+    if (jugador2.personaje !== undefined) {
+        setTimeout(function() {
+            pantallaEleccion.style.display = "none"
+            campoPelea.style.display = "grid"
+            arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
+        }, 4000)
+    }
     contenedorJugador1.innerHTML = jugador1.personaje.imagenIzq
     contenedorJugador2.innerHTML = jugador2.personaje.imagenDch
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//esto de aqui abajo no funciona porque no me escucha bien al boton y no se porque 
+// const botonEleccion = document.querySelectorAll('.eleccion__personaje--boton');
+// botonEleccion.forEach(boton => {
+//     boton.addEventListener('click', eleccionPersonaje)
+// })
+
+
+// function eleccionPersonaje(evento) {
+//     const id = evento.target.getAttribute("id")
+//     console.log(id);
+
+//     if (jugador1.personaje == undefined || jugador2.personaje == undefined) {
+//         switch (id) {
+//             case 'personaje__uno':
+//                 if (jugador1.personaje == undefined) {
+//                     jugador1.personaje = akuma;
+//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== akuma) {
+//                     jugador2.personaje = akuma;
+//                     starGame(jugador1, jugador2);
+//                 }
+//                 break
+//             case 'personaje__dos':
+//                 if (jugador1.personaje == undefined) {
+//                     jugador1.personaje = zangief;
+//                     alert("selecciona un segundo jugador");
+//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== zangief) {
+//                     jugador2.personaje = zangief;
+//                     starGame(jugador1, jugador2);
+//                 }
+//                 break
+//             case 'personaje__tres':
+//                 if (jugador1.personaje == undefined) {
+//                     jugador1.personaje = dhalsimp;
+//                     alert("selecciona un segundo jugador");
+//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== dhalsimp) {
+//                     jugador2.personaje = dhalsimp;
+//                     starGame(jugador1, jugador2);
+//                 }
+//                 break
+//             case 'personaje__cuatro':
+//                 if (jugador1.personaje == undefined) {
+//                     jugador1.personaje = ken;
+//                     alert("selecciona un segundo jugador");
+//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== ken) {
+//                     jugador2.personaje = ken;
+//                     starGame(jugador1, jugador2);
+//                 }
+//                 break
+//         }
+//     }
+// }
+
+// const contenedorJugador1 = document.querySelector(".img--jugador--uno");
+// const contenedorJugador2 = document.querySelector(".contenedor-seleccionado-2");
+// // let pantallaPrincipalCombate = document.querySelector(".pantalla-principal-combate")
+// // let pantallaPrincipalSeleccion = document.querySelector(".pantalla-principal-seleccion")
+
+
+
+// const starGame = (primejugador, segundojugador) => {
+//     console.log(primejugador)
+//     console.log(segundojugador)
+//         // pantallaPrincipalSeleccion.style.display = 'none'
+//         // pantallaPrincipalCombate.style.display = 'flex';
+//     contenedorJugador1.innerHTML = jugador1.personaje.imagenIzq
+//     contenedorJugador2.innerHTML = jugador2.personaje.imagenDch
+// }
