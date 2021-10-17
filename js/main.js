@@ -6,9 +6,12 @@ const campoPelea = document.querySelector('.fondo__pelea')
 const textoInicio = document.querySelector('.texto__inicio');
 const botonboton = document.querySelector('div .eliminar');
 const colorApagado = document.querySelector('.boton__boton');
-const contenedorJugador1 = document.querySelector('.img--jugador--uno');
-const contenedorJugador2 = document.querySelector('.img--jugador--dos');
+const contenedorJugador1 = document.querySelectorAll('.img--jugador--uno');
+const contenedorJugador2 = document.querySelectorAll('.img--jugador--dos');
+const barraVida = document.querySelectorAll('.barra')
+const botonJuego = document.querySelectorAll('.boton__ataque')
 
+console.log(botonJuego);
 
 function encender() {
     colorApagado.style.backgroundColor = ("greenyellow");
@@ -37,22 +40,30 @@ class personajes {
         this.imagenIzq = imagenIzq;
         this.imagenDch = imagenDch;
     }
+    daño() {
+        return (this.vida - (0.02 * this.ataque))
+    }
+    ataque2() {
+        return this.vide - 10
+    }
 }
-class jugador {
-    constructor(personajes) {
+
+class jugador extends personajes {
+    super(nombre, vida, ataque, imagenIzq, imagenDch, personajes) {
         this.personaje = personajes
     }
 }
-const akuma = new personajes('Akuma', 100, 110, '<img class="" src="img/akumaizq.gif" alt="">', '<img class="" src="img/akumadch.gif" alt="">');
-const zangief = new personajes('Zangief', 150, 70, '<img class="" src="img/zangiefizq.gif" alt="">', '<img class="" src="img/zangiefdch.gif" alt="">');
-const dhalsim = new personajes('Dhalsim', 90, 100, '<img class="" src="img/calabera-izq.gif" alt="">', '<img class="" src="img/calabera-indistinto.gif" alt="">');
-const ken = new personajes('Ken', 100, 100, '<img class="" src="img/ken-izq.gif" alt="">', '<img class="" src="img/kendch.gif" alt="">');
+
+const akuma = new personajes('Akuma', 100, 110, '<img class="imagen__personaje" src="img/akumaizq.gif" alt="">', '<img class="imagen__personaje" src="img/akumadch.gif" alt="">');
+const zangief = new personajes('Zangief', 150, 70, '<img class="imagen__personaje" src="img/zangiefizq.gif" alt="">', '<img class="imagen__personaje" src="img/zangiefdch.gif" alt="">');
+const dhalsim = new personajes('Dhalsim', 90, 100, '<img class="imagen__personaje" src="img/calabera-izq.gif" alt="">', '<img class="imagen__personaje" src="img/calabera-indistinto.gif" alt="">');
+const ken = new personajes('Ken', 100, 100, '<img class="imagen__personaje" src="img/ken-izq.gif" alt="">', '<img class="imagen__personaje" src="img/kendch.gif" alt="">');
 
 const jugador1 = new jugador();
-//console.log(jugador1);
 const jugador2 = new jugador();
-//console.log(jugador2);
 
+let vidaJp1 = jugador1.personaje.vida;
+let vidaJp2 = jugador2.personaje.vida;
 
 function eleccionPersonaje(personaje) {
     console.log(personaje);
@@ -105,89 +116,41 @@ function pantallaPelea(primejugador, segundojugador) {
             pantallaEleccion.style.display = "none"
             campoPelea.style.display = "grid"
             arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
+            contenedorJugador1[1].innerHTML = jugador1.personaje.imagenIzq
+            contenedorJugador2[1].innerHTML = jugador2.personaje.imagenDch
         }, 4000)
     }
-    contenedorJugador1.innerHTML = jugador1.personaje.imagenIzq
-    contenedorJugador2.innerHTML = jugador2.personaje.imagenDch
+    contenedorJugador1[0].innerHTML = jugador1.personaje.imagenIzq
+    contenedorJugador2[0].innerHTML = jugador2.personaje.imagenDch
+    let vida = () => {}
+    barraVida[0].innerHTML = jugador1.personaje.vida
+    barraVida[1].innerHTML = jugador2.personaje.vida
+    botonJuego[0].onclick = lucha;
+    botonJuego[1].onclick = lucha2;
 
+    console.log(vidaJp1);
+    console.log(vidaJg2);
+
+    function lucha(evento) {
+        console.log(botonJuego[0]);
+        barraVida[1].innerHTML = jugador2.personaje.daño()
+            // for (let i = 0; i >= vidaJp2; i++) {
+            //     console.log(i);
+            //     if (evento !== undefined) {
+            //         barraVida[1].innerHTML = jugador2.personaje.daño()
+            //         return
+            //     }
+            // }
+    }
+
+    function lucha2(evento) {
+        barraVida[0].innerHTML = jugador1.personaje.daño()
+            // for (let i = 0; i < vidaJp2; i++) {
+            //     console.log(i);
+            //     if (evento !== undefined) {
+            //         console.log(botonJuego[1]);
+            //         barraVida[0].innerHTML = jugador1.personaje.daño()
+            //     }
+            // }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//esto de aqui abajo no funciona porque no me escucha bien al boton y no se porque 
-// const botonEleccion = document.querySelectorAll('.eleccion__personaje--boton');
-// botonEleccion.forEach(boton => {
-//     boton.addEventListener('click', eleccionPersonaje)
-// })
-
-
-// function eleccionPersonaje(evento) {
-//     const id = evento.target.getAttribute("id")
-//     console.log(id);
-
-//     if (jugador1.personaje == undefined || jugador2.personaje == undefined) {
-//         switch (id) {
-//             case 'personaje__uno':
-//                 if (jugador1.personaje == undefined) {
-//                     jugador1.personaje = akuma;
-//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== akuma) {
-//                     jugador2.personaje = akuma;
-//                     starGame(jugador1, jugador2);
-//                 }
-//                 break
-//             case 'personaje__dos':
-//                 if (jugador1.personaje == undefined) {
-//                     jugador1.personaje = zangief;
-//                     alert("selecciona un segundo jugador");
-//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== zangief) {
-//                     jugador2.personaje = zangief;
-//                     starGame(jugador1, jugador2);
-//                 }
-//                 break
-//             case 'personaje__tres':
-//                 if (jugador1.personaje == undefined) {
-//                     jugador1.personaje = dhalsimp;
-//                     alert("selecciona un segundo jugador");
-//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== dhalsimp) {
-//                     jugador2.personaje = dhalsimp;
-//                     starGame(jugador1, jugador2);
-//                 }
-//                 break
-//             case 'personaje__cuatro':
-//                 if (jugador1.personaje == undefined) {
-//                     jugador1.personaje = ken;
-//                     alert("selecciona un segundo jugador");
-//                 } else if (jugador2.personaje == undefined && jugador1.personaje !== ken) {
-//                     jugador2.personaje = ken;
-//                     starGame(jugador1, jugador2);
-//                 }
-//                 break
-//         }
-//     }
-// }
-
-// const contenedorJugador1 = document.querySelector(".img--jugador--uno");
-// const contenedorJugador2 = document.querySelector(".contenedor-seleccionado-2");
-// // let pantallaPrincipalCombate = document.querySelector(".pantalla-principal-combate")
-// // let pantallaPrincipalSeleccion = document.querySelector(".pantalla-principal-seleccion")
-
-
-
-// const starGame = (primejugador, segundojugador) => {
-//     console.log(primejugador)
-//     console.log(segundojugador)
-//         // pantallaPrincipalSeleccion.style.display = 'none'
-//         // pantallaPrincipalCombate.style.display = 'flex';
-//     contenedorJugador1.innerHTML = jugador1.personaje.imagenIzq
-//     contenedorJugador2.innerHTML = jugador2.personaje.imagenDch
-// }

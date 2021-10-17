@@ -25,11 +25,11 @@
         <p class="eleccion__personaje--titulo no-m">player select</p>
         <div class="jp1__img">
             <p class="personaje--titulo no-m">player 1</p>
-            <div class="img--jugador--uno"></div>
+            <div class="img--jugador--uno combate__pj"></div>
         </div>
         <div class="jp2__img">
             <p class="personaje--titulo no-m">player 2</p>
-            <div class="img--jugador--dos"></div>
+            <div class="img--jugador--dos combate__pj"></div>
             <!-- <p class="nombre__personaje"></p> -->
         </div>
         <div class="eleccion__contenedor grid__selecPj">
@@ -40,31 +40,35 @@
         </div>
     </section>
     <!--pelea-->
-    <section class="fondo__pelea no-m">
+    <section class="fondo__pelea vh-h no-m">
         <!--estadisticas-->
-        <div class="estadisticas no-m  flex sp-evenly">
-            <div class="no-m ">
-                <p>vida player 1</p>
-            </div>
-            <div class="no-m">tiempo</div>
+        <div class="no-m  flex sp-evenly">
             <div>
-                <p class="no-m">vida player 2</p>
+                <p class="barra__vida"><span class="barra"></span></p>
+            </div>
+            <div>
+                <p class="">Tiempo</p>
+            </div>
+            <div>
+                <p class="barra__vida">
+                    <samp class="barra"></samp>
+                </p>
             </div>
         </div>
         <!--pantalla de juego-->
         <div class="pantalla__juego no-m flex sp-evenly">
-            <div class="img--jugador--uno"></div>
-            <div class="img--jugador--dos"></div>
+            <div class="img--jugador--uno combate__pj"></div>
+            <div class="img--jugador--dos combate__pj"></div>
         </div>
         <!-- botonees de juego -->
-        <div class="no-m flex sp-evenly">
-            <div>
-                <button><p>attack pj1</p></button>
-                <button><p>attack pj2</p></button>
+        <div class="botones__ataque no-m flex sp-evenly">
+            <div class="">
+                <button class="boton__ataque"></button>
+                <!-- <button class="boton__ataque"></button> -->
             </div>
-            <div>
-                <button><p>attack pj2</p></button>
-                <button><p>attack pj2</p></button>
+            <div class="botones__ataque--izquierda">
+                <button class="boton__ataque"></button>
+                <!-- <button class="boton__ataque"></button> -->
             </div>
         </div>
     </section>
