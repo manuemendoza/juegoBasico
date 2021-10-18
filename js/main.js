@@ -11,7 +11,7 @@ const contenedorJugador2 = document.querySelectorAll('.img--jugador--dos');
 const barraVida = document.querySelectorAll('.barra')
 const botonJuego = document.querySelectorAll('.boton__ataque')
 
-console.log(botonJuego);
+//console.log(botonJuego);
 
 function encender() {
     colorApagado.style.backgroundColor = ("greenyellow");
@@ -32,7 +32,7 @@ function encender() {
 
 /*Eleccion de personajes*/
 
-class personajes {
+class personaje {
     constructor(nombre, vida, ataque, imagenIzq, imagenDch) {
         this.nombre = nombre;
         this.vida = vida;
@@ -48,22 +48,21 @@ class personajes {
     }
 }
 
-class jugador extends personajes {
-    super(nombre, vida, ataque, imagenIzq, imagenDch, personajes) {
-        this.personaje = personajes
+class jugador extends personaje {
+    constructor(nombre, vida, ataque, imagenIzq, imagenDch) {
+        super(nombre, vida, ataque, imagenIzq, imagenDch, personajes);
+        this.personaje = personajes;
     }
 }
 
-const akuma = new personajes('Akuma', 100, 110, '<img class="imagen__personaje" src="img/akumaizq.gif" alt="">', '<img class="imagen__personaje" src="img/akumadch.gif" alt="">');
-const zangief = new personajes('Zangief', 150, 70, '<img class="imagen__personaje" src="img/zangiefizq.gif" alt="">', '<img class="imagen__personaje" src="img/zangiefdch.gif" alt="">');
-const dhalsim = new personajes('Dhalsim', 90, 100, '<img class="imagen__personaje" src="img/calabera-izq.gif" alt="">', '<img class="imagen__personaje" src="img/calabera-indistinto.gif" alt="">');
-const ken = new personajes('Ken', 100, 100, '<img class="imagen__personaje" src="img/ken-izq.gif" alt="">', '<img class="imagen__personaje" src="img/kendch.gif" alt="">');
+const akuma = new personaje('Akuma', 100, 110, '<img class="imagen__personaje" src="img/akumaizq.gif" alt="">', '<img class="imagen__personaje" src="img/akumadch.gif" alt="">');
+const zangief = new personaje('Zangief', 150, 70, '<img class="imagen__personaje" src="img/zangiefizq.gif" alt="">', '<img class="imagen__personaje" src="img/zangiefdch.gif" alt="">');
+const dhalsim = new personaje('Dhalsim', 90, 100, '<img class="imagen__personaje" src="img/calabera-izq.gif" alt="">', '<img class="imagen__personaje" src="img/calabera-indistinto.gif" alt="">');
+const ken = new personaje('Ken', 100, 100, '<img class="imagen__personaje" src="img/ken-izq.gif" alt="">', '<img class="imagen__personaje" src="img/kendch.gif" alt="">');
 
 const jugador1 = new jugador();
 const jugador2 = new jugador();
 
-let vidaJp1 = jugador1.personaje.vida;
-let vidaJp2 = jugador2.personaje.vida;
 
 function eleccionPersonaje(personaje) {
     console.log(personaje);
@@ -133,24 +132,26 @@ function pantallaPelea(primejugador, segundojugador) {
 
     function lucha(evento) {
         console.log(botonJuego[0]);
-        barraVida[1].innerHTML = jugador2.personaje.daño()
-            // for (let i = 0; i >= vidaJp2; i++) {
-            //     console.log(i);
-            //     if (evento !== undefined) {
-            //         barraVida[1].innerHTML = jugador2.personaje.daño()
-            //         return
-            //     }
-            // }
+        let vidaRestante1 = barraVida[1].innerHTML = jugador2.personaje.daño();
+        console.log(vidaRestante1);
+        // for (let i = 0; i >= vidaJp2; i++) {
+        //     console.log(i);
+        //     if (evento !== undefined) {
+        //         barraVida[1].innerHTML = jugador2.personaje.daño()
+        //         return
+        //     }
+        // }
     }
 
     function lucha2(evento) {
-        barraVida[0].innerHTML = jugador1.personaje.daño()
-            // for (let i = 0; i < vidaJp2; i++) {
-            //     console.log(i);
-            //     if (evento !== undefined) {
-            //         console.log(botonJuego[1]);
-            //         barraVida[0].innerHTML = jugador1.personaje.daño()
-            //     }
-            // }
+        let vidaREstante2 = barraVida[0].innerHTML = jugador1.personaje.daño();
+        console.log(vidaRestante2);
+        // for (let i = 0; i < vidaJp2; i++) {
+        //     console.log(i);
+        //     if (evento !== undefined) {
+        //         console.log(botonJuego[1]);
+        //         barraVida[0].innerHTML = jugador1.personaje.daño()
+        //     }
+        // }
     }
 }
