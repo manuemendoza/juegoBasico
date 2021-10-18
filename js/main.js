@@ -41,7 +41,7 @@ class personajes {
         this.imagenDch = imagenDch;
     }
     daño() {
-            return Math.random(0, 0.99) * this.ataque
+            return Math.round((Math.random(0, 0.99) * this.ataque))
         }
         // ataque2() {
         //     return this.vide - 10
@@ -52,6 +52,8 @@ class jugador {
         this.personaje = personajes
     }
 }
+
+
 
 // class jugador extends personaje {
 //     constructor(nombre, vida, ataque, imagenIzq, imagenDch) {
@@ -109,8 +111,9 @@ function eleccionPersonaje(personaje) {
             default:
                 break
         }
-    }
+    } else { pantallaPelea(jugador1, jugador2); }
 }
+
 
 function pantallaPelea(primejugador, segundojugador) {
     console.log(primejugador)
@@ -122,7 +125,7 @@ function pantallaPelea(primejugador, segundojugador) {
             arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
             contenedorJugador1[1].innerHTML = jugador1.personaje.imagenIzq
             contenedorJugador2[1].innerHTML = jugador2.personaje.imagenDch
-        }, 4000)
+        }, 2000)
     }
     contenedorJugador1[0].innerHTML = jugador1.personaje.imagenIzq
     contenedorJugador2[0].innerHTML = jugador2.personaje.imagenDch
@@ -131,31 +134,58 @@ function pantallaPelea(primejugador, segundojugador) {
         //botonJuego[0].onclick = lucha;
         // botonJuego[1].onclick = lucha2;
 
-    var vidaPj1 = jugador1.personaje.vida;
-    var vidaPj2 = jugador2.personaje.vida;
-    var ataque1 = jugador1.personaje.daño()
-    var ataque2 = jugador2.personaje.daño()
-    var vidaRestante1 = vidaPj1;
-    var vidaRestante2 = vidaPj2;
-    barraVida[1].innerHTML = vidaRestante2
-
-    console.log(barraVida[1].innerHTML);
-    console.log(vidaPj1);
-    console.log(vidaPj2);
-    console.log(ataque1);
-    console.log(ataque2);
+    // var vidaPj1 = jugador1.personaje.vida;
+    // var vidaPj2 = jugador2.personaje.vida;
+    // var ataque1 = jugador1.personaje.daño()
+    // var ataque2 = jugador2.personaje.daño()
+    // var vidaRestante1 = vidaPj1;
+    // var vidaRestante2 = vidaPj2;
+    // barraVida[1].innerHTML = vidaRestante2
+    // barraVida[0].innerHTML = vidaRestante1
+    // console.log(vidaPj1);
+    // console.log(vidaPj2);
+    // console.log(ataque1);
+    // console.log(ataque2);
 
 }
 
+
+
 function lucha(ataque) {
-    console.log(ataque);
-    if (ataque == "ataque1") {
-        console.log('he atacado');
-    } else if (ataque == "ataque2") {
-        console.log('segundo ataque');
+    console.log(jugador2, 'jugador 2')
+    console.log(jugador1, 'jugador 1')
+    switch (ataque) {
+        case 'ataque1':
+            if (jugador2.personaje.vida > 0) {
+                console.log(jugador2.personaje.vida -= jugador1.personaje.daño());
+                pintarVidaJugador2(jugador2.personaje.vida -= jugador1.personaje.daño())
+            }
+            break;
+        case 'ataque2':
+            if (jugador1.personaje.vida > 0) {
+                console.log(jugador1.personaje.vida - jugador2.personaje.daño());
+                pintarVidaJugador1(jugador1.personaje.vida -= jugador2.personaje.daño())
+            }
+            break;
+        default:
+            break;
     }
 }
 
+function pintarVidaJugador2(vidaRestanteDelJugador2) {
+    barraVida[1].innerHTML = vidaRestanteDelJugador2
+    if (vidaRestanteDelJugador2 <= 0) {
+        alert('Jugador 1 Gaaaana!!')
+            // llamar funcion
+    }
+}
+
+function pintarVidaJugador1(vidaRestanteDelJugador1) {
+    barraVida[0].innerHTML = vidaRestanteDelJugador1
+    if (vidaRestanteDelJugador1 <= 0) {
+        alert('Jugador 2 Gaaaana!!')
+    }
+}
 
 
 // function lucha(params) {
