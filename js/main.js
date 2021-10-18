@@ -41,7 +41,7 @@ class personajes {
         this.imagenDch = imagenDch;
     }
     daño() {
-            return Math.random(1, 5) * this.ataque
+            return Math.random(0, 0.99) * this.ataque
         }
         // ataque2() {
         //     return this.vide - 10
