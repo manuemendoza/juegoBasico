@@ -125,7 +125,7 @@ function pantallaPelea(primejugador, segundojugador) {
         setTimeout(function() {
             pantallaEleccion.style.display = "none"
             campoPelea.style.display = "grid"
-            arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
+            //arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
             contenedorJugador1[1].innerHTML = jugador1.personaje.imagenIzq
             contenedorJugador2[1].innerHTML = jugador2.personaje.imagenDch
         }, 2000)
@@ -180,7 +180,7 @@ function pintarVidaJugador2(vidaRestanteDelJugador2) {
     if (vidaRestanteDelJugador2 <= 0) {
         campoPelea.style.display = "none";
         pantallaWin.style.display = "flex";
-        arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
+        //arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
         ganar1.innerHTML = `<p class="gana--letra">Jugador 1 GAAAAAANAA!</p>`
         imgWin.innerHTML = '<img class="gana--imagen" src="img/Ft53.gif" alt="">'
             // llamar funcion
@@ -192,7 +192,7 @@ function pintarVidaJugador1(vidaRestanteDelJugador1) {
     if (vidaRestanteDelJugador1 <= 0) {
         campoPelea.style.display = "none";
         pantallaWin.style.display = "flex";
-        arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
+        //arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
         ganar1.innerHTML = `<p class="gana--letra">Jugador 2 GAAAAAANAA!</p>`
         imgWin.innerHTML = '<img class="gana--imagen" src="img/Ft53.gif" alt="">'
     }
