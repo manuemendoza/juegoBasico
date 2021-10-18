@@ -10,8 +10,8 @@
     <title>Juego</title>
 </head>
 
-<body class="fondo ">
-    <!-- <section class="transparencia">
+<body class="fondo">
+    <section class="transparencia vh-h">
         <div class="boton__inicio--contenedor no-m">
             <div class="eliminar">
                 <button id="botonEncendido" class="boton__boton" onclick="encender()">
@@ -20,50 +20,63 @@
             </div>
             <div class="texto__inicio"></div>
         </div>
-    </section> -->
+    </section>
     <section class="eleccion__personaje vh-h">
         <p class="eleccion__personaje--titulo no-m">player select</p>
         <div class="jp1__img">
             <p class="personaje--titulo no-m">player 1</p>
+            <div class="img--jugador--uno combate__pj"></div>
         </div>
         <div class="jp2__img">
             <p class="personaje--titulo no-m">player 2</p>
+            <div class="img--jugador--dos combate__pj"></div>
+            <!-- <p class="nombre__personaje"></p> -->
         </div>
         <div class="eleccion__contenedor grid__selecPj">
-            <button class="eleccion__personaje--boton boton--p1 no-p"><img class="eleccion--boton--imagen" src="img/akumapj.jpg" alt=""></button>
-            <button class="eleccion__personaje--boton boton--p2"><img class="eleccion--boton--imagen" src="img/zangiefpj.jpg" alt=""></button>
-            <button class="eleccion__personaje--boton boton--p3"><img class="eleccion--boton--imagen" src="img/Dhalsimpj.jpeg" alt=""></button>
-            <button class="eleccion__personaje--boton boton--p4"><img class="eleccion--boton--imagen" src="img/KenMasterpj.jpg" alt=""></button>
+            <button id="personaje__uno" class="eleccion__personaje--boton boton--p1 no-p" onclick="eleccionPersonaje('akuma')"><img class="eleccion--boton--imagen" src="img/akumapj.jpg" alt=""></button>
+            <button id="personaje__dos" class="eleccion__personaje--boton boton--p2" onclick="eleccionPersonaje('zangief')"><img class="eleccion--boton--imagen" src="img/zangiefpj.jpg" alt=""></button>
+            <button id="personaje__tres" class="eleccion__personaje--boton boton--p3" onclick="eleccionPersonaje('dhalsim')"><img class="eleccion--boton--imagen" src="img/Dhalsimpj.jpeg" alt=""></button>
+            <button id="personaje__cuatro" class="eleccion__personaje--boton boton--p4" onclick="eleccionPersonaje('ken')"><img class="eleccion--boton--imagen" src="img/KenMasterpj.jpg" alt=""></button>
         </div>
-    </section> -->
-    <!-- <section class="fondo__pelea no-m">
+    </section>
+    <!--pelea-->
+    <section class="fondo__pelea vh-h no-m">
         <!--estadisticas-->
-    <!--<div class="estadisticas no-m  flex sp-evenly">
-            <div class="no-m ">
-                <p>vida player 1</p>
-            </div>
-            <div class="no-m">tiempo</div>
+        <div class="no-m  flex sp-evenly">
             <div>
-                <p class="no-m">vida player 2</p>
+                <p class="barra__vida"><span class="barra"></span></p>
+            </div>
+            <div>
+                <p class="personaje--titulo no-m">V.S.</p>
+            </div>
+            <div>
+                <p class="barra__vida">
+                    <samp class="barra"></samp>
+                </p>
             </div>
         </div>
         <!--pantalla de juego-->
-    <!-- <div class="pantalla__juego no-m flex sp-evenly"> -->
-    <!-- <div><img src="img/akumaizq.gif" alt=""></div> -->
-    <!-- <div><img src="img/kendch.gif" alt=""></div> -->
-    <!-- </div> -->
-    <!-- botonees de juego -->
-    <!-- <div class="no-m flex sp-evenly">
-        <div>
-            <button><p>attack pj1</p></button>
-            <button><p>attack pj2</p></button>
+        <div class="pantalla__juego no-m flex sp-evenly">
+            <div class="img--jugador--uno combate__pj"></div>
+            <div class="img--jugador--dos combate__pj"></div>
         </div>
-        <div>
-            <button><p>attack pj2</p></button>
-            <button><p>attack pj2</p></button>
+        <!-- botonees de juego -->
+        <div class="botones__ataque no-m flex sp-evenly">
+            <div class="">
+                <button class="boton__ataque" onclick="lucha('ataque1')"></button>
+                <!-- <button class="boton__ataque"></button> -->
+            </div>
+            <div class="botones__ataque--izquierda">
+                <button class="boton__ataque" onclick="lucha('ataque2')"></button>
+                <!-- <button class="boton__ataque"></button> -->
+            </div>
         </div>
-    </div>
-    </section> -->-->
+    </section>
+    <!--Ganardor-->
+    <section class="ganador vh-h">
+        <div class="ganador__imagen"></div>
+        <div class="ganador__gana"></div>
+    </section>
 
     <script src="js/main.js"></script>
 </body>
