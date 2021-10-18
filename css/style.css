@@ -82,7 +82,7 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
-    /* display: none; */
+    display: none;
     /*esto de arriba hay que borrarlo*/
 }
 
@@ -141,7 +141,7 @@ body {
 /*pagina eleccion personaje*/
 
 .eleccion__personaje {
-    display: none;
+    display: grid;
     /*pasar a none*/
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
