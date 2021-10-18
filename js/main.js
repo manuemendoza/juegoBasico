@@ -1,15 +1,18 @@
 /*Inicio*/
+const arenaPelea = document.querySelector('.fondo')
 const transparencia = document.querySelector('.transparencia');
 const pantallaEleccion = document.querySelector('.eleccion__personaje')
-const arenaPelea = document.querySelector('.fondo')
 const campoPelea = document.querySelector('.fondo__pelea')
+const pantallaWin = document.querySelector('.ganador')
 const textoInicio = document.querySelector('.texto__inicio');
 const botonboton = document.querySelector('div .eliminar');
 const colorApagado = document.querySelector('.boton__boton');
 const contenedorJugador1 = document.querySelectorAll('.img--jugador--uno');
 const contenedorJugador2 = document.querySelectorAll('.img--jugador--dos');
-const barraVida = document.querySelectorAll('.barra')
-const botonJuego = document.querySelectorAll('.boton__ataque')
+const barraVida = document.querySelectorAll('.barra');
+const botonJuego = document.querySelectorAll('.boton__ataque');
+const ganar1 = document.querySelector('.ganador__gana');
+const imgWin = document.querySelector(".ganador__imagen")
 
 //console.log(botonJuego);
 
@@ -62,10 +65,10 @@ class jugador {
 //     }
 // }
 
-const akuma = new personajes('Akuma', 100, 110, '<img class="imagen__personaje" src="img/akumaizq.gif" alt="">', '<img class="imagen__personaje" src="img/akumadch.gif" alt="">');
-const zangief = new personajes('Zangief', 150, 70, '<img class="imagen__personaje" src="img/zangiefizq.gif" alt="">', '<img class="imagen__personaje" src="img/zangiefdch.gif" alt="">');
-const dhalsim = new personajes('Dhalsim', 90, 100, '<img class="imagen__personaje" src="img/calabera-izq.gif" alt="">', '<img class="imagen__personaje" src="img/calabera-indistinto.gif" alt="">');
-const ken = new personajes('Ken', 100, 100, '<img class="imagen__personaje" src="img/ken-izq.gif" alt="">', '<img class="imagen__personaje" src="img/kendch.gif" alt="">');
+const akuma = new personajes('Akuma', 300, 110, '<img class="imagen__personaje" src="img/akumaizq.gif" alt="">', '<img class="imagen__personaje" src="img/akumadch.gif" alt="">');
+const zangief = new personajes('Zangief', 450, 70, '<img class="imagen__personaje" src="img/zangiefizq.gif" alt="">', '<img class="imagen__personaje" src="img/zangiefdch.gif" alt="">');
+const dhalsim = new personajes('Dhalsim', 180, 150, '<img class="imagen__personaje" src="img/calabera-izq.gif" alt="">', '<img class="imagen__personaje" src="img/calabera-indistinto.gif" alt="">');
+const ken = new personajes('Ken', 300, 100, '<img class="imagen__personaje" src="img/ken-izq.gif" alt="">', '<img class="imagen__personaje" src="img/kendch.gif" alt="">');
 
 const jugador1 = new jugador();
 const jugador2 = new jugador();
@@ -175,7 +178,11 @@ function lucha(ataque) {
 function pintarVidaJugador2(vidaRestanteDelJugador2) {
     barraVida[1].innerHTML = vidaRestanteDelJugador2
     if (vidaRestanteDelJugador2 <= 0) {
-        alert('Jugador 1 Gaaaana!!')
+        campoPelea.style.display = "none";
+        pantallaWin.style.display = "flex";
+        arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
+        ganar1.innerHTML = `<p class="gana--letra">Jugador 1 GAAAAAANAA!</p>`
+        imgWin.innerHTML = '<img class="gana--imagen" src="img/Ft53.gif" alt="">'
             // llamar funcion
     }
 }
@@ -183,7 +190,11 @@ function pintarVidaJugador2(vidaRestanteDelJugador2) {
 function pintarVidaJugador1(vidaRestanteDelJugador1) {
     barraVida[0].innerHTML = vidaRestanteDelJugador1
     if (vidaRestanteDelJugador1 <= 0) {
-        alert('Jugador 2 Gaaaana!!')
+        campoPelea.style.display = "none";
+        pantallaWin.style.display = "flex";
+        arenaPelea.style.backgroundImage = "url('../img/escenarioFin.gif')";
+        ganar1.innerHTML = `<p class="gana--letra">Jugador 2 GAAAAAANAA!</p>`
+        imgWin.innerHTML = '<img class="gana--imagen" src="img/Ft53.gif" alt="">'
     }
 }
 

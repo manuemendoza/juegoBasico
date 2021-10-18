@@ -61,7 +61,7 @@ body {
 }
 
 .imagen__personaje {
-    width: 18rem;
+    width: 33%;
     margin-top: 15rem;
 }
 
@@ -71,7 +71,7 @@ body {
 .fondo {
     background-image: url(../img/eleccionPersonaje.gif);
     /* background-image: url(../img/escenarioLucha.gif); */
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -141,7 +141,7 @@ body {
 /*pagina eleccion personaje*/
 
 .eleccion__personaje {
-    display: grid;
+    display: none;
     /*pasar a none*/
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -234,7 +234,7 @@ body {
 
 .barra__vida {
     padding: 0 25rem;
-    border: 1.5px red solid;
+    border: 1.5px var(--colorApagado) solid;
     background-color: green;
 }
 
@@ -257,5 +257,27 @@ body {
 }
 
 .boton__ataque:active {
-    background-color: red;
+    background-color: var(--colorApagado);
+}
+
+
+/*pantallaWin*/
+
+.ganador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gana--letra {
+    color: #009846;
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.gana--imagen {
+    width: 80rem;
 }
