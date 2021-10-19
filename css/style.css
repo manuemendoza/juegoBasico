@@ -55,12 +55,23 @@ body {
     width: 95vw;
 }
 
+.combate__pj {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen__personaje {
+    width: 33%;
+    margin-top: 15rem;
+}
+
 
 /*Escenarios*/
 
 .fondo {
     background-image: url(../img/eleccionPersonaje.gif);
-    background-position: center;
+    /* background-image: url(../img/escenarioLucha.gif); */
+    background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -71,6 +82,8 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    /*display: none;*/
+    /*esto de arriba hay que borrarlo*/
 }
 
 .escenario {
@@ -128,7 +141,8 @@ body {
 /*pagina eleccion personaje*/
 
 .eleccion__personaje {
-    display: grid;
+    display: none;
+    /*pasar a none*/
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
@@ -213,11 +227,57 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed; */
-    height: 100vh;
-    display: grid;
+    display: none;
+    /*grid*/
     grid-template-rows: repeat(3, 1fr);
 }
 
-.estadisticas {}
+.barra__vida {
+    padding: 0 25rem;
+    border: 1.5px var(--colorApagado) solid;
+    background-color: green;
+}
 
-.pantalla__juego {}
+.pantalla__juego {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.botones__ataque {
+    gap: 35rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.boton__ataque {
+    margin-right: 2rem;
+    border-radius: 50%;
+    padding: 3rem;
+    background-color: rgb(165, 0, 0);
+}
+
+.boton__ataque:active {
+    background-color: var(--colorApagado);
+}
+
+
+/*pantallaWin*/
+
+.ganador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gana--letra {
+    color: #009846;
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.gana--imagen {
+    width: 80rem;
+}
