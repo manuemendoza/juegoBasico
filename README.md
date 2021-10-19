@@ -35,6 +35,6 @@ En JavaScript he creado varias capturas de los los nodos que voy a usaresmos en 
 
 * En la sección encender capture el boton del principio donde lanca un mensaje de bienvenida y una cuenta atras, cambie los fondos, salvo por el bug sin resolver que he tenido, y active los perosonajes de elección.
 
-*En la sección de selección de personaje  tenemos cuatro botones correspondiendes a cada uno de los personaje disponible, lo unico malo es que no he conseguido que puedas elegir el mismo personaje. Cuando los jugadores uno y jugador dos  hayan elegido estos pintaran en la pantalle de seleccion  cual ha sido elegido. despues de un par de segundos esta pantalla se desactivará y se activará la pantalla de lucha.
+* En la sección de selección de personaje  tenemos cuatro botones correspondiendes a cada uno de los personaje disponible, lo unico malo es que no he conseguido que puedas elegir el mismo personaje. Cuando los jugadores uno y jugador dos  hayan elegido estos pintaran en la pantalle de seleccion  cual ha sido elegido. despues de un par de segundos esta pantalla se desactivará y se activará la pantalla de lucha.
 
-*En la pantalla de lucha estaran los personajes  que hemos elegido, tambien tendremos dos botones donde podemos quitarle puntos al contrincante. El que llegue a cero pierde y lanzara la pantalla del ganador.
+* En la pantalla de lucha estaran los personajes  que hemos elegido, tambien tendremos dos botones donde podemos quitarle puntos al contrincante. El que llegue a cero pierde y lanzara la pantalla del ganador.
