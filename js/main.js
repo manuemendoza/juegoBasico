@@ -1,3 +1,12 @@
+/*personajes*/
+const akuma = {
+    imagenIzq: "url(../img/akumaizq.git)",
+    imagenDch: "url(../img/akumaizq.git)",
+    nombre: "Akuma",
+    vida: 120,
+    ataque: 50,
+}
+
 /*Inicio*/
 const transparencia = document.querySelector('.transparencia');
 const textoInicio = document.querySelector('.texto__inicio');
