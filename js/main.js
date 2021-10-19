@@ -1,12 +1,3 @@
-/*personajes*/
-const akuma = {
-    imagenIzq: "url(../img/akumaizq.git)",
-    imagenDch: "url(../img/akumaizq.git)",
-    nombre: "Akuma",
-    vida: 120,
-    ataque: 50,
-}
-
 /*Inicio*/
 const arenaPelea = document.querySelector('.fondo')
 const transparencia = document.querySelector('.transparencia');
@@ -27,7 +18,7 @@ const imgWin = document.querySelector(".ganador__imagen")
 
 function encender() {
     colorApagado.style.backgroundColor = ("greenyellow");
-    setTimeout(function() { textoInicio.innerHTML = `<p class="letras__inicio">¡Hola Pringados!</p>` }, 2000)
+    setTimeout(function() { textoInicio.innerHTML = `<p class="letras__inicio">¡Bienvenidos Geeks!</p>` }, 2000)
     setTimeout(function() { botonboton.style.display = "none"; }, 3000)
     setTimeout(function() { textoInicio.innerHTML = `<p class="letras__inicio--estilo">El juego empieza en</p>` }, 3000)
     setTimeout(function() { textoInicio.innerHTML = `<p class="inicio--estilo--numeros">3</p>` }, 4000)
@@ -134,7 +125,7 @@ function pantallaPelea(primejugador, segundojugador) {
         setTimeout(function() {
             pantallaEleccion.style.display = "none"
             campoPelea.style.display = "grid"
-            //arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
+                //arenaPelea.style.backgroundImage = "url('../img/escenarioLucha.gif')"
             contenedorJugador1[1].innerHTML = jugador1.personaje.imagenIzq
             contenedorJugador2[1].innerHTML = jugador2.personaje.imagenDch
         }, 2000)
@@ -206,53 +197,3 @@ function pintarVidaJugador1(vidaRestanteDelJugador1) {
         imgWin.innerHTML = '<img class="gana--imagen" src="img/Ft53.gif" alt="">'
     }
 }
-
-
-// function lucha(params) {
-//     console.log('el boton funciona');
-//     for (let i = vidaRestante2; i >= vidaRestante2; i--) {
-//         console.log(i);
-//         if (i == 0) {
-//             alert("jugador 1 Gaaaanaaa!")
-//         } else {
-//             vidaRestante2 = vidaPj2 - ataque1
-//             console.log(vida);
-//         }
-//     }
-// }
-
-
-// function lucha(evento) {
-//     console.log(botonJuego[0]);
-//     // for (let i = 0; i < vidaRestante2; i++) {
-//         //         //     console.log(i);
-//         //         //     if (condition) {
-//         //         //     }
-//         //         //     vidaRestante2 = vidaPj2 - ataque1
-//         //         //     console.log(vidaRestante2);
-//         //         // }
-//         //         // var vidaRestante1 = barraVida[1].innerHTML = jugador2.personaje.daño();
-//         //         // for (let i = 0; i < vidaRestante1; i++) {
-//         //         //     vidaRestante1 -= barraVida[1].innerHTML = jugador2.personaje.daño();
-//         //         //     console.log(vidaRestante1);
-//         //         //     console.log(i);
-//         //         //     //     if (evento !== undefined) {
-//         //         //     //         barraVida[1].innerHTML = jugador2.personaje.daño()
-//         //         //     //         return
-//         //         //     //     }
-//         //         //     // }
-//         //         // }
-//     }
-// }
-
-//     function lucha2(evento) {
-//         var vidaRestante2 = barraVida[0].innerHTML = jugador1.personaje.daño();
-//         console.log(vidaRestante2);
-//         // for (let i = 0; i < vidaJp2; i++) {
-//         //     console.log(i);
-//         //     if (evento !== undefined) {
-//         //         console.log(botonJuego[1]);
-//         //         barraVida[0].innerHTML = jugador1.personaje.daño()
-//         //     }
-//     }
-//}
